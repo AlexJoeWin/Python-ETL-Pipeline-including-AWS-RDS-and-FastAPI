@@ -15,7 +15,7 @@ ETL pipeline poject/
 ├── .gitignore 					# Git ignore rules
 ├── Config/
 │ ├── __init__.py
-│ ├── models.py 				# SQLAlchemy ORM model for Sales
+│ ├── models.py 				# SQLAlchemy ORM model
 │ └── schemas.py 				# Pydantic schema for API responses
 ├── ETL/
 │ ├── __init__.py

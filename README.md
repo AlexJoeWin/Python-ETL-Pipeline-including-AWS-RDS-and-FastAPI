@@ -37,7 +37,7 @@ ETL pipeline poject/
 
 - **FastAPI REST endpoints**:
   - `POST /run` — Trigger ETL pipeline
-  - `GET /check` — Retrieve cleaned sales data
+  - `GET /check` — Retrieve cleaned data
   - `GET /` — Health check
   - `GET /ping` — Ping endpoint (for testing purposes)
 
@@ -91,7 +91,7 @@ This section outlines how to provision a PostgreSQL database on AWS RDS, securel
 
 ### 🔐 Configure VPC Security Groups
 
-On the setting page of the newly created database select the defined VPC Security, prevent traffic from all sources and ports and create instead:
+On the setting page of the newly created database select the defined VPC Security; prevent traffic from all sources and ports and create instead:
 
 -   **Inbound Rules**:
     -   Type: PostgreSQL
@@ -190,9 +190,9 @@ fastapi dev main.py
 
 Then test the endpoints using `curl` in your CLI:
 
--   `curl http://localhost:8000/` → Health check
--   `curl -X POST http://localhost:8000/run` → Trigger ETL pipeline
--   `curl http://localhost:8000/check` → Retrieve cleaned sales data
+-   `curl http://localhost:8000/` → health check
+-   `curl -X POST http://localhost:8000/run` → trigger ETL pipeline
+-   `curl http://localhost:8000/check` → retrieve cleaned data
 
 ----------
 

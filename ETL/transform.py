@@ -4,7 +4,7 @@ import logging
 def transform(raw_data):
     # Raise error in case NaNs overwhelm
     miss_ratio_mask = raw_data.isna().sum() / raw_data.shape[0]
-    aff_data = raw_data.loc[:, miss_ratio_mask > 0.4]
+    aff_data = raw_data.loc[:, miss_ratio_mask > 0.4] #threshold 40%
     if aff_data.shape[1] != 0:
         logging.warning(f"Data lacking. Affected features: {aff_data.columns}\n")
 

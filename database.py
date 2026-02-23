@@ -31,5 +31,5 @@ SQLALCHEMY_DATABASE_URL = (
 #print(db_config)
 cloud_engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=cloud_engine)
-Base = declarative_base()
+SessionLocal = sessionmaker(bind=cloud_engine)
+Base = declarative_base() #root of the ORM system; therefore, it is located in database.py (technically it could sit in orm_model.py, too)

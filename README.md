@@ -27,7 +27,7 @@ ETL pipeline poject/
 ├── main.py 					# FastAPI app with endpoints
 ├── extra_data.parquet 			# External data source
 ├── sales_data.db 				# Local SQLite source (for extraction)
-├── requirements.txt 			# Python dependencies
+└── requirements.txt 			# Python dependencies
 
 ```
 
@@ -55,16 +55,17 @@ ETL pipeline poject/
 
 ## 🔐 Environment Setup
 
-Create a `.env` file with the following keys:
+Create a `.env` file with the following paths and keys:
 
 ```env
-KEY=your_aws_secret_name
+KEY="your_aws_secret_name"
 FILE_PATH=./extra_data.parquet
 DB_PATH=sqlite:///sales_data.db
-
+AWS_ACCESS_KEY_ID="your_key"
+AWS_SECRET_ACCESS_KEY="your_key"
 ```
 
-Ensure `.env` is listed in `.gitignore` to prevent accidental commits.
+**Caution:** ```region_name``` variable in ```database.py``` was by default set to ```"eu-north-1"``` - adjust it as required.
 
 ----------
 
@@ -147,7 +148,7 @@ On the setting page of the newly created database select the defined VPC Securit
 
 ----------
 
-### 🧰 Configure AWS CLI Locally
+### 🧰 Configure AWS CLI Locally (otional)
 
 Run the following in your terminal:
 
@@ -161,6 +162,9 @@ Enter:
 -   **Secret Access Key**: from IAM user
 -   **Region**: e.g. `eu-central-1`
 -   **Output format**: `json`
+
+Once AWS CLI is configured, ```boto3``` automatically loads credentials. In that case adjust the code for the session call in ```database.py``` the following way:
+``` session = boto3.Session(region_name=region_name) ```.
 
 ----------
 

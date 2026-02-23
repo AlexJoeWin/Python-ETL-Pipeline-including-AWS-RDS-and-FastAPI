@@ -1,0 +1,29 @@
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Secrets
+.env
+
+# Build artifacts
+*.log
+
+# Packaging
+*.egg-info/
+dist/
+build/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore

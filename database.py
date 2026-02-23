@@ -8,13 +8,18 @@ load_dotenv()
 key=os.getenv("KEY")
 assert key, "Missing KEY in .env"
 
-def get_db_config(secret_name: str, region_name: str = "eu-north-1"):
-    client = boto3.client("secretsmanager", region_name=region_name)
+def get_db_config(secret_name: str, region_name: str):
+    session = boto3.Session(
+        aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
+        aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
+        region_name=region_name
+    )
+    client = session.client("secretsmanager")
     secret = client.get_secret_value(SecretId=secret_name)
     return json.loads(secret["SecretString"])
 
 try:
-    db_config = get_db_config(key)
+    db_config = get_db_config(key, "eu-north-1")
 except Exception as e:
     logging.error(f"SecretsManager error: {e}")
     raise

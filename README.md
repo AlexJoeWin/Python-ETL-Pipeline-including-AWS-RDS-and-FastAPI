@@ -148,7 +148,7 @@ On the setting page of the newly created database select the defined VPC Securit
 
 ----------
 
-### 🧰 Configure AWS CLI Locally (otional)
+### 🧰 Configure AWS CLI Locally (optional)
 
 Run the following in your terminal:
 
